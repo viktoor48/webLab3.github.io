@@ -1,0 +1,120 @@
+/*Стили детальной страницы начало*/
+.product{
+
+}
+.product_title{
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: 700;*/
+    color: #3a3a3a;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin: 0px 0px 18px 0px;
+}
+.product_title span{
+    display: block;
+    font-size: 30px;
+    /*color: #676767;*/
+    color: #b9b9b9;
+}
+.product_content{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+@media (min-width: 640px) {
+    .product_content{
+        display: flex;
+    }
+    .product_body{
+        margin-left: 30px;
+    }
+}
+@media (max-width: 640px) {
+    .product_body{
+        margin-top: 20px;
+    }
+}
+.product_images img{
+    width: 100%;
+}
+.product_images{
+    flex: 0 0 42.5%;
+}
+.images-product_mainSlide{
+    height: 308px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.images-product_image{
+
+}
+.product_body{
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+}
+.product_price{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.container-detail_pg{
+    background: rgba(229, 229, 229, 0.11);
+}
+/*Стили описания начало*/
+.info-product{
+
+}
+.info-product_nav{
+    display: flex;
+    align-items: center;
+}
+.info-product_item{
+    height: 49px;
+    color: #ece89d;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info-product_item span{
+    border-bottom: 1px dashed;
+}
+.info-product_item._active{
+    background-color: #ece89d;
+    color: #fff;
+}
+.info-product_item._active span{
+    border-bottom: 1px dashed transparent;
+}
+.info-product_body{
+    padding: 35px 30px;
+}
+@media (max-width: 430px) {
+    .info-product_body{
+        padding: 20px 10px;
+    }
+    .info-product_item{
+        height: 39px;
+        padding: 0px 20px;
+    }
+}
+.info-product_block p{
+    color: #666666;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 0px 0px 20px 0px;
+}
+.info-product_block:last-child{
+    margin: 0px 0px 0px 0px;
+}
+@media (min-width: 640px) {
+    .info-product_nav{
+        margin-top: 20px;
+    }
+}
+/*Стили описания конец*/
+/*Стили детальной страницы конец*/
