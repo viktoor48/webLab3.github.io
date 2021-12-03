@@ -11,7 +11,7 @@ $items = $pdo->query($sql);
 
 foreach ($items as $item): ?>
 <article data-pid="<?php print_r($item['id'])?>" class="product_item item_product">
-                  <a href="detail_page.html" class="item-product_image _ibg">
+                  <a href="detail_page.php?id=<?php print_r($item['id'])?>" class="item-product_image _ibg">
                       <img src="image/<?php print_r($item['image']) ?>" alt="">
                   </a>
                   <div class="item-product_body">
@@ -24,7 +24,7 @@ foreach ($items as $item): ?>
                       </div>
                       <div class="item-product_actions actions-product">
                          <div class="actions-product_body">
-                               <a href="detail_page.html" target="_blank" class="actions-product_button btn btn_white">Show details</a>
+                               <a href="detail_page.php?id=<?php print_r($item['id'])?>" target="_blank" class="actions-product_button btn btn_white">Show details</a>
                                <a href="#" class="actions-product_link _icon-favorite">Like</a>
                                <ion-icon name ="heart"></ion-icon>
                          </div>
