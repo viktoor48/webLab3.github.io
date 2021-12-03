@@ -7,4 +7,3 @@ try {
  echo "Ошибка подключения к БД: " . $exception->getMessage();
  die();
 }
-?>
