@@ -1,6 +1,7 @@
 /* Обнуление*/
 a{
     text-decoration: none;
+    color: #3a3a3a;
 }
 ul,
 ol,
@@ -474,6 +475,18 @@ body.lock{
 .form_button:active{
     top: 3px;
     box-shadow: 0 2px 0 #2c3626;
+}
+.checkbox a:hover{
+    color: coral;
+    transition: 0.3s;
+}
+.link_on{
+    margin-top: 20px;
+    color: #3a3a3a;
+}
+.link_on a:hover{
+    color: coral;
+    transition: 0.3s;
 }
 /*Стили формы регистрации конец*/
 

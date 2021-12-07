@@ -104,10 +104,13 @@
                 <div class="form_item">
                     <div class="checkbox">
                         <input checked id="formAgreement" type="checkbox" name="agreement" class="checkbox_input _req">
-                        <label for="formAgreement" class="checkbox_label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="">условиями</a>*</span></label>
+                        <label for="formAgreement" class="checkbox_label"><span>Я даю свое согласие на обработку персональных данных в соответствии с <a href="#">условиями</a>*</span></label>
                     </div>
                 </div>
                 <button type="submit" class="form_button">Зарегестрироваться</button>
+                <p class="link_on">
+                    У вас уже есть аккаунт? - <a href="#" class="link_to_enterForm">авторизируйтесь</a>!
+                </p>
             </form>
         </div>
         <!--Конец Формы регистрации-->
@@ -127,6 +130,9 @@
                     <input id="user-pass" type="password" name="userPassword" class="form_input _req _userPass">
                 </div>
                 <button type="submit" class="form_button">Войти</button>
+                <p class="link_on">
+                    У вас нет аккаунта? - <a href="#" class="link_to_registrationForm">зарегистрируйтесь</a>!
+                </p>
             </form>
         </div>
         <!--Конец Формы входа-->

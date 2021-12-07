@@ -23,6 +23,14 @@ $(document).ready(function() {
         $('#popup_enter, .form_enter').removeClass('open');
         $('body').removeClass('lock');
     });
+    $('.link_to_enterForm').click(function(event) {
+        $('#popup_enter, .form_enter').addClass('open');
+        $('#popup_reg, .form_registration').removeClass('open');
+    });
+    $('.link_to_registrationForm').click(function(event) {
+        $('#popup_reg, .form_registration').addClass('open');
+        $('#popup_enter, .form_enter').removeClass('open');
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function ()
@@ -38,14 +46,13 @@ document.addEventListener('DOMContentLoaded', function ()
 
         if (error === 0){
             /*form_registration.classList.add('_sending');*/
-            let response = await fetch('https://httpbin.org/post',{
+            let response = await fetch('submitForm/registerForm.php',{
                 method: 'POST',
                 body: formData
             });
             if (response.ok){
                 let result = await response.json();
                 alert('Успешно');
-                /*alert(result.message);*/
                 console.log(result.form);
                 form_registration.reset();
                 $('#popup_reg, .form_registration').removeClass('open');
@@ -120,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function ()
 
         if (error === 0){
             /*form_enter.classList.add('_sending');*/
-            let response = await fetch('https://httpbin.org/post',{
+            let response = await fetch('submitForm/enterForm.php',{
                 method: 'POST',
                 body: formData
             });
