@@ -1,4 +1,7 @@
-<?php require 'db.php';?>
+<?php
+session_start();
+require 'db.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +24,18 @@
                 </div>
                 <nav class="header_menu">
                     <ul class="header_list">
-                        <li><a href="#" class="header_link">Главная</a></li>
-                        <li><a href="#" class="header_link enter">Войти</a></li>
+                        <?php
+                        if (!empty($_SESSION['user'])){
+                            ?>
+                            <li><a href="#" class="header_link">Привет, <?= $_SESSION['user']['name']?></a></li>
+                            <li><a href="logout.php" class="header_link logout lock">Выйти</a></li>
+                            <?php
+                        }else{
+                            ?>
+                            <li><a href="#" class="header_link enter">Войти</a></li>
+                            <?php
+                        }
+                        ?>
                         <li><a href="#" class="header_link registration">Регистрация</a></li>
                         <li><a href="#" class="header_link">Контакты</a></li>
                     </ul>
@@ -38,7 +51,7 @@
                     <div class="product_items">
                     <?php
                         $pageSize = 3;
-                        $sql =  "SELECT * FROM post  LIMIT $pageSize OFFSET 0";
+                        $sql =  "SELECT * FROM post LIMIT $pageSize OFFSET 0";
                         $items = $pdo->query($sql);
                      ?>
                      <?php foreach($items as $item)

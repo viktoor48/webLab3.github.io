@@ -52,12 +52,15 @@ document.addEventListener('DOMContentLoaded', function ()
             });
             if (response.ok){
                 let result = await response.json();
-                alert('Успешно');
-                console.log(result.form);
-                form_registration.reset();
-                $('#popup_reg, .form_registration').removeClass('open');
-                $('body').removeClass('lock');
-                /*form_registration.classList.remove('_sending');*/
+                if (result){
+                    alert('Успешно');
+                    form_registration.reset();
+                    $('#popup_reg, .form_registration').removeClass('open');
+                    $('body').removeClass('lock');
+                    /*form_registration.classList.remove('_sending');*/
+                }else {
+                    alert('Аккаунт с такой почтой уже используется');
+                }
             }else {
                 alert('Ошибка');
                 /*form_registration.classList.remove('_sending');*/
@@ -133,13 +136,16 @@ document.addEventListener('DOMContentLoaded', function ()
             });
             if (response.ok){
                 let result = await response.json();
-                alert('Успешно');
-                /*alert(result.message);*/
-                console.log(result.form);
-                form_enter.reset();
-                $('#popup_enter, .form_enter').removeClass('open');
-                $('body').removeClass('lock');
-                /*form_enter.classList.remove('_sending');*/
+                if (result){
+                    alert('Успешно');
+                    form_enter.reset();
+                    $('#popup_enter, .form_enter').removeClass('open');
+                    $('body').removeClass('lock');
+                    location.replace('/index.php');
+                    /*form_enter.classList.remove('_sending');*/
+                }else {
+                    alert('Неверный логин или пароль');
+                }
             }else {
                 alert('Ошибка');
                 /*form_enter.classList.remove('_sending');*/
@@ -208,6 +214,5 @@ document.addEventListener('DOMContentLoaded', function ()
             .catch(error => console.log(error));
     }
     //кнопка more_posts  конец -------------------------------------------------------------
-
 });
 

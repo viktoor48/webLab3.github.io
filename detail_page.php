@@ -1,10 +1,12 @@
-<?php require 'Template/header.html'; ?>
+<?php
+session_start();
+require 'Template/header.php';
+?>
 <head><link rel="stylesheet" href="detail_page.css" type="text/css"></head>
 <?php
 require 'db.php';
 $id = $_GET['id'];
 $sql =  "SELECT * FROM post WHERE id=$id";
-//global $pdo;
 $items = $pdo->query($sql);
 ?>
 <?php foreach($items as $item)
@@ -22,8 +24,29 @@ $items = $pdo->query($sql);
                         <div class="product_body">
                             <div class="product_price">Price <?php print_r($item['price'])?> ₽</div>
                             <div class="actions-product_body">
-                                <a href="#" target="_blank" class="actions-product_button btn btn_white detail_pg">Откликнуться</a>
-                                <a href="#" target="_blank" class="actions-product_button btn btn_white detail_pg">Показать номер телефона</a>
+                                <a href="#" class="actions-product_button btn btn_white detail_pg">Откликнуться</a>
+                                <?php
+                                if (!empty($_SESSION['user'])){
+                                    $sql_select_author_id = "SELECT author_id FROM `post` WHERE `id`=:id";
+                                    $param1 = ['id' => $id];
+                                    $query1 = $pdo->prepare($sql_select_author_id);
+                                    $query1->execute($param1);
+                                    $author_id = $query1->fetch(PDO::FETCH_ASSOC);
+
+                                    $sql_select_phone = "SELECT phone FROM `user` WHERE `id`=:author_id";
+                                    $query2 = $pdo->prepare($sql_select_phone);
+                                    $param2 = ['author_id' => $author_id['author_id']];
+                                    $query2->execute($param2);
+                                    $phone = $query2->fetch(PDO::FETCH_ASSOC);
+                                    ?>
+                                    <a href="#" class="actions-product_button btn btn_white detail_pg">Телефон: <?php print_r($phone['phone'])?></a>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <a href="#" class="actions-product_button btn btn_white detail_pg">Показать номер телефона</a>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -40,7 +63,7 @@ $items = $pdo->query($sql);
                 </div>
             </section>
             <?php };?>
-       <?php require 'Template/footer.html'; ?>
+       <?php require 'Template/footer.php'; ?>
     <div id="popup_reg" class="popups_inner">
         <!--Форма регистрации-->
         <div class="form_registration">
