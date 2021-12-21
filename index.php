@@ -154,7 +154,7 @@ require 'db.php';
         <!--Форма создания поста-->
         <div class="form_create-post">
             <a href="#" class="close_popup">Х</a>
-            <form action="#" id="form-registration-id" class="form_body" name="form_reg_name">
+            <form action="#" id="form-create-id" class="form_body" name="form_reg_name">
                 <h1 class="form_title post">Ваше объявление</h1>
                 <div class="form_item">
                     <label for="formName" class="form_label">Название</label>

@@ -166,6 +166,39 @@ document.addEventListener('DOMContentLoaded', function ()
     }
     /*Валидация формы входа конец*/
 
+    /*Валидация формы создания поста начало*/
+    const form_create_post = document.getElementById('form-create-id');
+    form_create_post.addEventListener('submit',form_send_create_post);
+
+    async function form_send_create_post(e) {
+        e.preventDefault();
+        let error = formValidate(form_create_post);
+        let formData = new FormData(form_create_post);
+
+            /*form_enter.classList.add('_sending');*/
+            let response = await fetch('create_post.php',{
+                method: 'POST',
+                body: formData
+            });
+            if (response.ok){
+                let result = await response.json();
+                if (result){
+                    alert('Успешно');
+                    form_enter.reset();
+                    $('#popup_create_post, .form_create-post').removeClass('open');
+                    $('body').removeClass('lock');
+                    location.replace('/index.php');
+                    /*form_enter.classList.remove('_sending');*/
+                }else {
+                    alert('Ошибка заполнения');
+                }
+            }else {
+                alert('Ошибка');
+                /*form_enter.classList.remove('_sending');*/
+            }
+    }
+    /*Валидация формы создания поста конец*/
+
     function formAddError(input){
         input.parentElement.classList.add('_error');
         input.classList.add('_error');
