@@ -368,7 +368,7 @@ body{
 body.lock{
     overflow: hidden;
 }
-.form_registration,.form_enter{
+.form_registration,.form_enter,.form_create-post{
     max-width: 550px;
     max-height: 100%;
     margin: 0 auto;
@@ -508,3 +508,25 @@ body.lock{
     outline: none;
 }
 /*Стили формы входа конец*/
+
+/*Стили формы создания поста начало*/
+.form_create-post.open{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease 0s;
+}
+.form_create-post::-webkit-scrollbar{
+    display: none;
+}
+#popup_create_post.open{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease 0s;
+}
+.form_create-post*{
+    outline: none;
+}
+.form_title.post{
+    margin-right: 40px;
+}
+/*Стили формы создания поста конец*/

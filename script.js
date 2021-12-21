@@ -23,6 +23,16 @@ $(document).ready(function() {
         $('#popup_enter, .form_enter').removeClass('open');
         $('body').removeClass('lock');
     });
+
+    $('.header_link.create_post').click(function(event) {
+        $('#popup_create_post, .form_create-post').addClass('open');
+        $('body').addClass('lock');
+    });
+    $('.close_popup').click(function () {
+        $('#popup_create_post, .form_create-post').removeClass('open');
+        $('body').removeClass('lock');
+    });
+
     $('.link_to_enterForm').click(function(event) {
         $('#popup_enter, .form_enter').addClass('open');
         $('#popup_reg, .form_registration').removeClass('open');
@@ -193,11 +203,11 @@ document.addEventListener('DOMContentLoaded', function ()
         event.preventDefault();
 
         let page = parseInt(event.target.getAttribute('data-next-page'));
-        console.log(page);
+
         if (isNaN(page)) {
             page = 0;
         }
-        console.log(page);
+
         let url = event.target.href + '?page=' + page;
         fetch(url)
             .then(response => response.text())

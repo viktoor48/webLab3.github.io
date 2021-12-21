@@ -28,16 +28,16 @@ require 'db.php';
                         if (!empty($_SESSION['user'])){
                             ?>
                             <li><a href="#" class="header_link">Привет, <?= $_SESSION['user']['name']?></a></li>
+                            <li><a href="#" class="header_link create_post">Создать объявление</a></li>
                             <li><a href="logout.php" class="header_link logout lock">Выйти</a></li>
                             <?php
                         }else{
                             ?>
                             <li><a href="#" class="header_link enter">Войти</a></li>
+                            <li><a href="#" class="header_link registration">Регистрация</a></li>
                             <?php
                         }
                         ?>
-                        <li><a href="#" class="header_link registration">Регистрация</a></li>
-                        <li><a href="#" class="header_link">Контакты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -149,6 +149,37 @@ require 'db.php';
             </form>
         </div>
         <!--Конец Формы входа-->
+    </div>
+    <div id="popup_create_post" class="popups_inner">
+        <!--Форма создания поста-->
+        <div class="form_create-post">
+            <a href="#" class="close_popup">Х</a>
+            <form action="#" id="form-registration-id" class="form_body" name="form_reg_name">
+                <h1 class="form_title post">Ваше объявление</h1>
+                <div class="form_item">
+                    <label for="formName" class="form_label">Название</label>
+                    <input id="formName" type="text" name="name" class="form_input name _req">
+                </div>
+                <div class="form_item">
+                    <label for="formEmail" class="form_label">Категория</label>
+                    <input id="formEmail" type="text" name="category" class="form_input _req _email">
+                </div>
+                <div class="form_item">
+                    <label for="formPhone" class="form_label">Цена</label>
+                    <input id="formPhone" type="text" name="price" class="form_input _req _phone">
+                </div>
+                <div class="form_item">
+                    <label for="formPass" class="form_label">Описание</label>
+                    <textarea name="description" id="formMessage" class="form_input"></textarea>
+                </div>
+                <div class="form_item">
+                    <label for="formPass-repeat" class="form_label">Изображение</label>
+                    <input id="formImage" accept=".jpg, .png, .gif" type="file" name="image" class="file_input">
+                </div>
+                <button type="submit" class="form_button">Выложить объявление</button>
+            </form>
+        </div>
+        <!--Конец Формы создания поста-->
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
